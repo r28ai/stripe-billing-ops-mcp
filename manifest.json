@@ -1,0 +1,373 @@
+{
+  "manifest_version": "0.4",
+  "name": "stripe-billing-ops-mcp",
+  "display_name": "Stripe Billing Ops",
+  "version": "0.1.0",
+  "description": "Invoices from real work, failed-payment follow-ups, revenue sheets and dispute evidence.",
+  "author": {
+    "name": "R28 AI, Inc.",
+    "url": "https://r28.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/r28ai/stripe-billing-ops-mcp"
+  },
+  "homepage": "https://github.com/r28ai/stripe-billing-ops-mcp",
+  "license": "Apache-2.0",
+  "keywords": [
+    "charter",
+    "google calendar",
+    "github",
+    "stripe",
+    "gmail",
+    "slack",
+    "google sheets",
+    "shopify",
+    "google drive",
+    "linear",
+    "google docs",
+    "notion"
+  ],
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/server.py"
+      ],
+      "env": {
+        "GOOGLE_CLIENT_ID": "${user_config.google_client_id}",
+        "GOOGLE_CLIENT_SECRET": "${user_config.google_client_secret}",
+        "GITHUB_TOKEN": "${user_config.github_token}",
+        "STRIPE_API_KEY": "${user_config.stripe_api_key}",
+        "SLACK_BOT_TOKEN": "${user_config.slack_bot_token}",
+        "SHOPIFY_SHOP": "${user_config.shopify_shop}",
+        "SHOPIFY_CLIENT_ID": "${user_config.shopify_client_id}",
+        "SHOPIFY_CLIENT_SECRET": "${user_config.shopify_client_secret}",
+        "LINEAR_API_KEY": "${user_config.linear_api_key}",
+        "NOTION_API_KEY": "${user_config.notion_api_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "gcalendar_events_list",
+      "description": "List events matching a given search filter."
+    },
+    {
+      "name": "github_search_commits",
+      "description": "Search commits by message, author or date across GitHub — 'repo:owner/name fix flaky test'."
+    },
+    {
+      "name": "stripe_invoice_items_create",
+      "description": "Add a line to an invoice."
+    },
+    {
+      "name": "stripe_invoices_create",
+      "description": "Create a draft invoice for a customer."
+    },
+    {
+      "name": "stripe_invoices_send",
+      "description": "Email an invoice to the customer outside the normal schedule."
+    },
+    {
+      "name": "stripe_invoices_list",
+      "description": "List invoices, most recently created first."
+    },
+    {
+      "name": "stripe_customers_retrieve",
+      "description": "Retrieve a single customer by ID."
+    },
+    {
+      "name": "gmail_drafts_create",
+      "description": "Save an email draft to Gmail."
+    },
+    {
+      "name": "slack_chat_post_message",
+      "description": "Send a message to a Slack channel, private group, or DM."
+    },
+    {
+      "name": "stripe_subscriptions_list",
+      "description": "List subscriptions."
+    },
+    {
+      "name": "stripe_balance_transactions_list",
+      "description": "List every movement across the Stripe balance: charges, refunds, fees and payouts."
+    },
+    {
+      "name": "gsheets_spreadsheets_values_append",
+      "description": "Appends values to a spreadsheet."
+    },
+    {
+      "name": "stripe_payouts_list",
+      "description": "List payouts to your own bank account or card, most recently created first."
+    },
+    {
+      "name": "gsheets_spreadsheets_values_update",
+      "description": "Sets values in a range of a spreadsheet."
+    },
+    {
+      "name": "stripe_disputes_list",
+      "description": "List disputes, most recently created first."
+    },
+    {
+      "name": "stripe_disputes_retrieve",
+      "description": "Retrieve a dispute by ID."
+    },
+    {
+      "name": "gmail_threads_list",
+      "description": "List Gmail threads."
+    },
+    {
+      "name": "shopify_order_get",
+      "description": "Get one order with its line items, shipping address and totals."
+    },
+    {
+      "name": "stripe_disputes_update",
+      "description": "Add evidence to a dispute."
+    },
+    {
+      "name": "gmail_messages_list",
+      "description": "List messages in the user's mailbox."
+    },
+    {
+      "name": "gmail_messages_attachments_get",
+      "description": "Read one attachment, by the attachmentId messages_get or threads_get lists."
+    },
+    {
+      "name": "gdrive_files_create",
+      "description": "Create a file's metadata: a folder (`mimeType` `application/vnd.google-apps.folder`), a Google Doc / Sheet / Slide, or an empty blob."
+    },
+    {
+      "name": "gmail_threads_get",
+      "description": "Read a Gmail thread."
+    },
+    {
+      "name": "stripe_customers_list",
+      "description": "List customers, most recently created first."
+    },
+    {
+      "name": "stripe_subscriptions_update",
+      "description": "Update a subscription."
+    },
+    {
+      "name": "stripe_balance_retrieve",
+      "description": "Retrieve the current account balance."
+    },
+    {
+      "name": "linear_projects_list",
+      "description": "List projects in the workspace, with their status and progress."
+    },
+    {
+      "name": "gdocs_documents_create",
+      "description": "Create a blank document with a title."
+    },
+    {
+      "name": "stripe_prices_create",
+      "description": "Create a price for a product."
+    },
+    {
+      "name": "notion_pages_create",
+      "description": "Create a page — as a subpage of another page, or as a row of a database by giving its `data_source_id` as the parent."
+    },
+    {
+      "name": "stripe_accounts_list",
+      "description": "List the connected accounts on this platform."
+    },
+    {
+      "name": "stripe_application_fees_list",
+      "description": "List the platform fees collected from connected accounts."
+    },
+    {
+      "name": "slack_users_list",
+      "description": "List members of the workspace."
+    },
+    {
+      "name": "gsheets_spreadsheets_values_get",
+      "description": "Returns a range of values from a spreadsheet."
+    },
+    {
+      "name": "stripe_charges_list",
+      "description": "List charges, most recently created first."
+    },
+    {
+      "name": "stripe_refunds_create",
+      "description": "Refund a charge."
+    },
+    {
+      "name": "stripe_products_create",
+      "description": "Create a product."
+    },
+    {
+      "name": "connection_status",
+      "description": "Which apps this server can reach, and how to connect the rest. Changes nothing."
+    },
+    {
+      "name": "connect",
+      "description": "Connect one app: where to get its key, or the Google sign-in in the browser."
+    }
+  ],
+  "prompts": [
+    {
+      "name": "setup",
+      "description": "Connect the apps this server uses.",
+      "text": "Help me connect the apps this server uses.\n\n1. Call `connection_status` to see what is connected.\n2. For each app it lists as not connected, call `connect` with that app. Where that opens a browser sign-in, tell me to approve it, then move on.\n3. Where an app needs a key, tell me the page to get it from and the exact command to run in my terminal (`stripe-billing-ops-mcp login <app>`). Do not ask me to paste a key into this chat.\n4. Call `connection_status` again and tell me what is still missing."
+    },
+    {
+      "name": "freelancer_invoice_from_the_week_s_work",
+      "description": "Client meetings and commits become line items and a sent invoice.",
+      "text": "Freelancer invoice from the week's work. Client meetings and commits become line items and a sent invoice.\n\nUse these tools, in this order:\n1. `gcalendar_events_list`\n2. `github_search_commits`\n3. `stripe_invoice_items_create`\n4. `stripe_invoices_create`\n5. `stripe_invoices_send`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "failed_payment_follow_up",
+      "description": "Past-due invoices get a human email and the account owner is told.",
+      "text": "Failed payment follow-up. Past-due invoices get a human email and the account owner is told.\n\nUse these tools, in this order:\n1. `stripe_invoices_list`\n2. `stripe_customers_retrieve`\n3. `gmail_drafts_create`\n4. `slack_chat_post_message`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "revenue_sheet",
+      "description": "MRR, new, churned and fees appended daily to the sheet finance already uses.",
+      "text": "Revenue sheet. MRR, new, churned and fees appended daily to the sheet finance already uses.\n\nUse these tools, in this order:\n1. `stripe_subscriptions_list`\n2. `stripe_balance_transactions_list`\n3. `gsheets_spreadsheets_values_append`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "payout_reconciliation",
+      "description": "Each payout broken into the charges, refunds and fees inside it.",
+      "text": "Payout reconciliation. Each payout broken into the charges, refunds and fees inside it.\n\nUse these tools, in this order:\n1. `stripe_payouts_list`\n2. `stripe_balance_transactions_list`\n3. `gsheets_spreadsheets_values_update`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "dispute_evidence_pack",
+      "description": "Correspondence and fulfillment proof assembled and submitted before the deadline.",
+      "text": "Dispute evidence pack. Correspondence and fulfillment proof assembled and submitted before the deadline.\n\nUse these tools, in this order:\n1. `stripe_disputes_list`\n2. `stripe_disputes_retrieve`\n3. `gmail_threads_list`\n4. `shopify_order_get`\n5. `stripe_disputes_update`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "receipts_to_drive_and_the_expense_sheet",
+      "description": "Every receipt filed and logged without forwarding emails to anyone.",
+      "text": "Receipts → Drive and the expense sheet. Every receipt filed and logged without forwarding emails to anyone.\n\nUse these tools, in this order:\n1. `gmail_messages_list`\n2. `gmail_messages_attachments_get`\n3. `gdrive_files_create`\n4. `gsheets_spreadsheets_values_append`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "vendor_invoice_inbox_to_approval",
+      "description": "Bills land in a sheet with the PDF and an approval request to the budget owner.",
+      "text": "Vendor invoice inbox → approval. Bills land in a sheet with the PDF and an approval request to the budget owner.\n\nUse these tools, in this order:\n1. `gmail_messages_list`\n2. `gmail_messages_attachments_get`\n3. `gdrive_files_create`\n4. `gsheets_spreadsheets_values_append`\n5. `slack_chat_post_message`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "plan_change_by_email",
+      "description": "'Please move us to annual' handled from the email, with confirmation drafted.",
+      "text": "Plan change by email. 'Please move us to annual' handled from the email, with confirmation drafted.\n\nUse these tools, in this order:\n1. `gmail_threads_get`\n2. `stripe_customers_list`\n3. `stripe_subscriptions_update`\n4. `gmail_drafts_create`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "investor_update_draft",
+      "description": "Numbers from billing and progress from the tracker, in your template.",
+      "text": "Investor update draft. Numbers from billing and progress from the tracker, in your template.\n\nUse these tools, in this order:\n1. `stripe_balance_retrieve`\n2. `stripe_subscriptions_list`\n3. `linear_projects_list`\n4. `gdocs_documents_create`\n5. `gmail_drafts_create`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "price_change_rollout",
+      "description": "New price created, affected customers listed and notice drafted, with an FAQ page.",
+      "text": "Price change rollout. New price created, affected customers listed and notice drafted, with an FAQ page.\n\nUse these tools, in this order:\n1. `stripe_prices_create`\n2. `stripe_subscriptions_list`\n3. `gmail_drafts_create`\n4. `notion_pages_create`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "platform_fee_report",
+      "description": "Fees per connected account per month, for marketplaces on Connect.",
+      "text": "Platform fee report. Fees per connected account per month, for marketplaces on Connect.\n\nUse these tools, in this order:\n1. `stripe_accounts_list`\n2. `stripe_application_fees_list`\n3. `gsheets_spreadsheets_values_update`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "saas_spend_audit",
+      "description": "Every recurring vendor charge in the inbox, with an owner asked to justify it.",
+      "text": "SaaS spend audit. Every recurring vendor charge in the inbox, with an owner asked to justify it.\n\nUse these tools, in this order:\n1. `gmail_messages_list`\n2. `gsheets_spreadsheets_values_append`\n3. `slack_users_list`\n4. `slack_chat_post_message`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "bulk_refunds_from_a_sheet",
+      "description": "A list of affected orders after an incident, refunded and marked row by row.",
+      "text": "Bulk refunds from a sheet. A list of affected orders after an incident, refunded and marked row by row.\n\nUse these tools, in this order:\n1. `gsheets_spreadsheets_values_get`\n2. `stripe_charges_list`\n3. `stripe_refunds_create`\n4. `gsheets_spreadsheets_values_update`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    },
+    {
+      "name": "price_list_from_a_sheet",
+      "description": "The pricing sheet the team agreed on becomes the products Stripe sells.",
+      "text": "Price list from a sheet. The pricing sheet the team agreed on becomes the products Stripe sells.\n\nUse these tools, in this order:\n1. `gsheets_spreadsheets_values_get`\n2. `stripe_products_create`\n3. `stripe_prices_create`\n\nBefore anything else, check whether any of these tools' apps is not connected: the server's instructions say, and so does `connection_status`. If one is not, tell me how to connect it first, before asking me for anything.\nRead before you write. Before any call that creates, sends, changes or deletes something, show me what it will do and wait for my go-ahead, unless I have told you to go ahead without asking.\nIf a tool says its app is not connected, tell me how to connect it, as the tool says, and stop there."
+    }
+  ],
+  "user_config": {
+    "google_client_id": {
+      "type": "string",
+      "title": "Google: OAuth client ID",
+      "description": "Optional. Your own OAuth client, made at https://console.cloud.google.com/auth/clients; with it set, ask Claude to connect Google.",
+      "sensitive": false,
+      "required": false,
+      "default": ""
+    },
+    "google_client_secret": {
+      "type": "string",
+      "title": "Google: OAuth client secret",
+      "description": "Optional. Your own OAuth client, made at https://console.cloud.google.com/auth/clients; with it set, ask Claude to connect Google.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "github_token": {
+      "type": "string",
+      "title": "GitHub: Personal access token",
+      "description": "Optional. Get it at https://github.com/settings/tokens/new?description=Charter&scopes=repo,read:user",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "stripe_api_key": {
+      "type": "string",
+      "title": "Stripe: Secret or restricted key",
+      "description": "Optional. Get it at https://dashboard.stripe.com/apikeys",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "slack_bot_token": {
+      "type": "string",
+      "title": "Slack: Bot token (xoxb-…)",
+      "description": "Optional. Get it at https://docs.r28.ai/charter/auth/setup/slack",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "shopify_shop": {
+      "type": "string",
+      "title": "Shopify: Store domain (your-store.myshopify.com)",
+      "description": "Optional. Get it at https://dev.shopify.com/dashboard",
+      "sensitive": false,
+      "required": false,
+      "default": ""
+    },
+    "shopify_client_id": {
+      "type": "string",
+      "title": "Shopify: App client ID",
+      "description": "Optional. Get it at https://dev.shopify.com/dashboard",
+      "sensitive": false,
+      "required": false,
+      "default": ""
+    },
+    "shopify_client_secret": {
+      "type": "string",
+      "title": "Shopify: App client secret",
+      "description": "Optional. Get it at https://dev.shopify.com/dashboard",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "linear_api_key": {
+      "type": "string",
+      "title": "Linear: Personal API key",
+      "description": "Optional. Get it at https://linear.app/settings/account/security",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "notion_api_key": {
+      "type": "string",
+      "title": "Notion: Integration secret (ntn_…)",
+      "description": "Optional. Get it at https://www.notion.so/profile/integrations",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    }
+  }
+}
